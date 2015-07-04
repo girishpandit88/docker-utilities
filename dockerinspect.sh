@@ -1,0 +1,1 @@
+docker ps -q|xargs docker inspect $_|jq '[.[]|{ipAddr: .NetworkSettings.IPAddress, name: .Config.Image, running: .State.Running, mounts: .Volumes}]'
